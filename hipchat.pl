@@ -154,7 +154,7 @@ if (lc($optionNotify) eq "y" || lc($optionNotify) eq "yes" || lc($optionNotify) 
       $optionNotify = JSON::true;
    }
 } else {
-   $optionNotify = "false";
+   $optionNotify = JSON::false;
 }
 
 # Check that the color is valid.
