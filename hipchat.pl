@@ -5,8 +5,7 @@
 # Created by Chris Tobey.
 # Modified by Ciaran Downey.
 
-use warnings;
-use strict;
+use Modern::Perl '2014';
 
 use Getopt::Long;
 use LWP::UserAgent;
