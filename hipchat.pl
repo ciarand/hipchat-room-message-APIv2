@@ -14,22 +14,34 @@ use List::Util qw(any none);
 
 sub get_usage {
     print <<'    USAGE_MESSAGE';
-        Usage:
-            -room      Hipchat room name or ID.                      Example: '-room "test"'
-            -token     Hipchat Authentication token.                 Example: '-token "abc"'
-            -message   Message to be sent to room.                   Example: '-message "Hello World!"'
-            -type      (Optional) Hipchat message type (text|html).  Example: '-type "text"'                   (default: text)
-            -api       (Optional) Hipchat api Version. (v1|v2).      Example: '-type "v2"'                     (default: v2)
-            -notify    (Optional) Message will trigger notification. Example: '-notify'                        (default: false)
-            -color     (Optional) Message color (y|r|g|p|g|random)   Example: '-color "green"'                 (default: yellow)
-            -from      (Optional) Name message is to be sent from.   Example: '-from "Test"'                   (only used with apiv1)
-            -proxy     (Optional) Network proxy to use.              Example: '-proxy "http://127.0.0.1:3128"'
-            -strict    (Optional) Return non-zero on failure         Example: '-strict'                        (default: false)
+Usage:
+    -room      Hipchat room name or ID.
+        Example: '-room "test"'
+    -token     Hipchat Authentication token.
+        Example: '-token "abc"'
+    -message   Message to be sent to room.
+        Example: '-message "Hello World!"'
+    -type      (Optional) Hipchat message type (text|html).
+        Example: '-type "text"'                   (default: text)
+    -api       (Optional) Hipchat api Version. (v1|v2).
+        Example: '-type "v2"'                     (default: v2)
+    -notify    (Optional) Message will trigger notification.
+        Example: '-notify'                        (default: false)
+    -color     (Optional) Message color (y|r|g|p|g|random)
+        Example: '-color "green"'                 (default: yellow)
+    -from      (Optional) Name message is to be sent from.
+        Example: '-from "Test"'                   (only used with apiv1)
+    -proxy     (Optional) Network proxy to use.
+        Example: '-proxy "http://127.0.0.1:3128"'
+    -strict    (Optional) Return non-zero on failure
+        Example: '-strict'                        (default: false)
 
-        Basic Example:
-            hipchat.pl -room "test" -token "abc" -message "Hello World!"
-            Full Example:
-            hipchat.pl -room "test" -token "abc" -message "Hello World!" -type text -api v2 -notify true -color green -proxy http://127.0.0.1:3128
+Basic Example:
+    hipchat.pl -room "test" -token "abc" -message "Hello World!"
+
+Full Example:
+    hipchat.pl -room "test" -token "abc" -message "Hello World!" -type text \
+        -api v2 -notify true -color green -proxy http://127.0.0.1:3128
     USAGE_MESSAGE
 }
 
@@ -102,7 +114,7 @@ sub die_with_usage {
 
 # check all required options first
 while (my ($message, $arg) = each(%required_fields_and_errors)) {
-    die_with_usage($message) unless $arg ne "";
+    die_with_usage($message) unless $$arg ne "";
 }
 
 # Check to verify that all options are valid before continuing.
