@@ -1,3 +1,5 @@
+This project is deprecated and unmaintained. Proceed with caution!
+
 hipchat-room-message-APIv2
 ==========================
 This is a simple perl script that will use Hipchat's API v2 to message a room
